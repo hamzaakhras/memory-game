@@ -1,106 +1,114 @@
 * {
-  box-sizing: border-box;
+    box-sizing: border-box;
 }
-body {
-  font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+:root {
+    --blue: #0097ffe8;
 }
-.controls-buttons {
-  position: fixed;
-  z-index: 2;
-  left: 0;
-  top: 0;
-  width: 100%;
-  height: 100%;
-  background-color: #00b2ff54;
+.button-container {
+    position: fixed;
+    z-index: 2;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    background-color: #00b2ff54;
 }
-.controls-buttons span {
-  position: absolute;
-  left: 50%;
-  top: 50%;
-  transform: translate(-50%, -50%);
-  background-color: #f44336;
-  color: #fff;
-  cursor: pointer;
-  font-size: 30px;
-  font-weight: bold;
-  padding: 15px 25px;
-  text-align: center;
-  border-radius: 10px;
-  border: 6px solid #fff;
+.btn {
+    position: absolute;
+    font-size: 35px;
+    padding: 5px 10px;
+    width: fit-content;
+    border: 5px solid white;
+    border-radius: 5px;
+    color: white;
+    background-color: rgb(250, 58, 58);
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+    cursor: pointer;
 }
-.info-container {
-  width: 1080px;
-  margin: 20px auto 0;
-  background-color: #f6f6f6;
-  padding: 20px;
-  font-size: 24px;
-  overflow: hidden;
-  border: 2px solid #2196f3;
+.end-game {
+    position: fixed;
+    z-index: 2;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    background-color: #575859ad;
+    display: none;
 }
-.info-container .name {
-  float: left;
-  width: 50%;
+.end {
+    position: absolute;
+    font-size: 100px;
+    padding: 5px 10px;
+    width: fit-content;
+    border: 5px solid white;
+    border-radius: 5px;
+    color: white;
+    background-color: rgb(250, 58, 58);
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+    cursor: pointer;
 }
-.info-container .tries {
-  float: right;
-  width: 50%;
-  text-align: right;
+.info {
+    padding: 20px 32px;
+    border: 2px solid var(--blue);
+    display: flex;
+    position: relative;
+    font-size: 24px;
+    margin: auto;
+    width: 1100px;
+    background-color: #eee;
+    margin: 20px auto;
 }
-/* .memory-blocks img {
-  width: 225px;
-  height: 225px;
-} */
-.memory-blocks {
-  display: flex;
-  width: 1100px;
-  flex-wrap: wrap;
-  margin: 20px auto;
+.tries {
+    position: absolute;
+    right: 50px;
 }
-
-.memory-blocks.stopClicking {
-  pointer-events: none;
+.blocks-container {
+    display: flex;
+    flex-wrap: wrap;
+    margin: auto;
+    width: 1100px;
 }
-.game-block {
-  height: 200px;
-  transition: transform 0.5s;
-  transform-style: preserve-3d;
-  cursor: pointer;
-  position: relative;
-  flex: 1 0 200px;
-  margin: 0 10px 20px;
+.blocks-container.stopClicking {
+    pointer-events: none;
 }
-.game-block .front:before {
-  content: "?";
-  color: #fff;
-  font-size: 140px;
-  font-weight: bold;
+.block {
+    display: block;
+    width: 200px;
+    height: 200px;
+    transform-style: preserve-3d;
+    cursor: pointer;
+    position: relative;
+    transition: transform 0.5s;
+    /* transform: rotateY(180deg); */
+    margin: 0px 10px 20px;
 }
-.game-block .front {
-  background-color: #333;
-  line-height: 200px;
+.face {
+    height: 100%;
+    width: 100%;
+    position: absolute;
+    backface-visibility: hidden;
 }
-.game-block .back {
-  background-color: #607d8b;
-  transform: rotateY(180deg);
+.front {
+    color: #eee;
+    background-color: rgb(71 65 65);
+    border: 5px solid var(--blue);
+    font-size: 169px;
+    padding: 0px 56px;
 }
-
-.game-block .back img {
-  width: 140px;
-  height: 140px;
-  margin-top: 30px;
+.back {
+    transform: rotateY(180deg);
 }
-.game-block .face {
-  position: absolute;
-  width: 100%;
-  height: 100%;
-  text-align: center;
-  backface-visibility: hidden;
-  border: 5px solid #2196f3;
+.back img {
+    width: 100%;
+    height: 100%;
 }
-.flipped,
+.flipped {
+    transform: rotateY(180deg);
+}
 .matched {
-  -webkit-transform: rotateY(180deg);
-  -moz-transform: rotateY(180deg);
-  transform: rotateY(180deg);
-  pointer-events: none;
+    transform: rotateY(180deg);
 }

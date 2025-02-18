@@ -1,143 +1,146 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <link rel="stylesheet" href="style.css" />
-    <title>Memory Game</title>
-  </head>
-  <body>
-    <div class="controls-buttons">
-      <span>Start Game</span>
-    </div>
-    <div class="info-container">
-      <div class="name">hello: <span></span></div>
-      <div class="tries">Wrong Tries: <span>0</span></div>
-    </div>
-    <div class="memory-blocks">
-      <div class="game-block" data-tech="img-1">
-        <div class="face front"></div>
-        <div class="face back">
-          <img src="images/1.png" alt="" />
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <link rel="stylesheet" href="style.css" />
+        <title>Document</title>
+    </head>
+    <body>
+        <div class="button-container">
+            <span class="btn">Start Game</span>
         </div>
-      </div>
-      <div class="game-block" data-tech="img-1">
-        <div class="face front"></div>
-        <div class="face back">
-          <img src="images/1.png" alt="" />
+        <div class="end-game">
+            <span class="end"> you win</span>
         </div>
-      </div>
-      <div class="game-block" data-tech="img-2">
-        <div class="face front"></div>
-        <div class="face back">
-          <img src="images/2.png" alt="" />
+        <div class="info">
+            hello: <span class="name"> </span>
+
+            <div class="tries">Wrong Tries: 0 <span id="#tries"></span></div>
         </div>
-      </div>
-      <div class="game-block" data-tech="img-2">
-        <div class="face front"></div>
-        <div class="face back">
-          <img src="images/2.png" alt="" />
+        <div class="blocks-container">
+            <div class="block" data-tech="img-1">
+                <div class="face front">?</div>
+                <div class="face back">
+                    <img src="images/1.png" alt="" />
+                </div>
+            </div>
+            <div class="block" data-tech="img-1">
+                <div class="face front">?</div>
+                <div class="face back">
+                    <img src="images/1.png" alt="" />
+                </div>
+            </div>
+            <div class="block" data-tech="img-2">
+                <div class="face front">?</div>
+                <div class="face back">
+                    <img src="images/2.png" alt="" />
+                </div>
+            </div>
+            <div class="block" data-tech="img-2">
+                <div class="face front">?</div>
+                <div class="face back">
+                    <img src="images/2.png" alt="" />
+                </div>
+            </div>
+            <div class="block" data-tech="img-3">
+                <div class="face front">?</div>
+                <div class="face back">
+                    <img src="images/3.jpg" alt="" />
+                </div>
+            </div>
+            <div class="block" data-tech="img-3">
+                <div class="face front">?</div>
+                <div class="face back">
+                    <img src="images/3.jpg" alt="" />
+                </div>
+            </div>
+            <div class="block" data-tech="img-4">
+                <div class="face front">?</div>
+                <div class="face back">
+                    <img src="images/4.jpg" alt="" />
+                </div>
+            </div>
+            <div class="block" data-tech="img-4">
+                <div class="face front">?</div>
+                <div class="face back">
+                    <img src="images/4.jpg" alt="" />
+                </div>
+            </div>
+            <div class="block" data-tech="img-5">
+                <div class="face front">?</div>
+                <div class="face back">
+                    <img src="images/5.jpg" alt="" />
+                </div>
+            </div>
+
+            <div class="block" data-tech="img-5">
+                <div class="face front">?</div>
+                <div class="face back">
+                    <img src="images/5.jpg" alt="" />
+                </div>
+            </div>
+            <div class="block" data-tech="img-6">
+                <div class="face front">?</div>
+                <div class="face back">
+                    <img src="images/6.jpg" alt="" />
+                </div>
+            </div>
+            <div class="block" data-tech="img-6">
+                <div class="face front">?</div>
+                <div class="face back">
+                    <img src="images/6.jpg" alt="" />
+                </div>
+            </div>
+            <div class="block" data-tech="img-7">
+                <div class="face front">?</div>
+                <div class="face back">
+                    <img src="images/7.jpg" alt="" />
+                </div>
+            </div>
+            <div class="block" data-tech="img-7">
+                <div class="face front">?</div>
+                <div class="face back">
+                    <img src="images/7.jpg" alt="" />
+                </div>
+            </div>
+            <div class="block" data-tech="img-8">
+                <div class="face front">?</div>
+                <div class="face back">
+                    <img src="images/8.jpg" alt="" />
+                </div>
+            </div>
+            <div class="block" data-tech="img-8">
+                <div class="face front">?</div>
+                <div class="face back">
+                    <img src="images/8.jpg" alt="" />
+                </div>
+            </div>
+            <div class="block" data-tech="img-9">
+                <div class="face front">?</div>
+                <div class="face back">
+                    <img src="images/9.png" alt="" />
+                </div>
+            </div>
+            <div class="block" data-tech="img-9">
+                <div class="face front">?</div>
+                <div class="face back">
+                    <img src="images/9.png" alt="" />
+                </div>
+            </div>
+            <div class="block" data-tech="img-10">
+                <div class="face front">?</div>
+                <div class="face back">
+                    <img src="images/10.png" alt="" />
+                </div>
+            </div>
+            <div class="block" data-tech="img-10">
+                <div class="face front">?</div>
+                <div class="face back">
+                    <img src="images/10.png" alt="" />
+                </div>
+            </div>
         </div>
-      </div>
-      <div class="game-block" data-tech="img-3">
-        <div class="face front"></div>
-        <div class="face back">
-          <img src="images/3.jpg" alt="" />
-        </div>
-      </div>
-      <div class="game-block" data-tech="img-3">
-        <div class="face front"></div>
-        <div class="face back">
-          <img src="images/3.jpg" alt="" />
-        </div>
-      </div>
-      <div class="game-block" data-tech="img-4">
-        <div class="face front"></div>
-        <div class="face back">
-          <img src="images/4.jpg" alt="" />
-        </div>
-      </div>
-      <div class="game-block" data-tech="img-4">
-        <div class="face front"></div>
-        <div class="face back">
-          <img src="images/4.jpg" alt="" />
-        </div>
-      </div>
-      <div class="game-block" data-tech="img-5">
-        <div class="face front"></div>
-        <div class="face back">
-          <img src="images/5.jpg" alt="" />
-        </div>
-      </div>
-      <div class="game-block" data-tech="img-5">
-        <div class="face front"></div>
-        <div class="face back">
-          <img src="images/5.jpg" alt="" />
-        </div>
-      </div>
-      <div class="game-block" data-tech="img-6">
-        <div class="face front"></div>
-        <div class="face back">
-          <img src="images/6.jpg" alt="" />
-        </div>
-      </div>
-      <div class="game-block" data-tech="img-6">
-        <div class="face front"></div>
-        <div class="face back">
-          <img src="images/6.jpg" alt="" />
-        </div>
-      </div>
-      <div class="game-block" data-tech="img-7">
-        <div class="face front"></div>
-        <div class="face back">
-          <img src="images/7.jpg" alt="" />
-        </div>
-      </div>
-      <div class="game-block" data-tech="img-7">
-        <div class="face front"></div>
-        <div class="face back">
-          <img src="images/7.jpg" alt="" />
-        </div>
-      </div>
-      <div class="game-block" data-tech="img-8">
-        <div class="face front"></div>
-        <div class="face back">
-          <img src="images/8.jpg" alt="" />
-        </div>
-      </div>
-      <div class="game-block" data-tech="img-8">
-        <div class="face front"></div>
-        <div class="face back">
-          <img src="images/8.jpg" alt="" />
-        </div>
-      </div>
-      <div class="game-block" data-tech="img-9">
-        <div class="face front"></div>
-        <div class="face back">
-          <img src="images/9.png" alt="" />
-        </div>
-      </div>
-      <div class="game-block" data-tech="img-9">
-        <div class="face front"></div>
-        <div class="face back">
-          <img src="images/9.png" alt="" />
-        </div>
-      </div>
-      <div class="game-block" data-tech="img-10">
-        <div class="face front"></div>
-        <div class="face back">
-          <img src="images/10.png" alt="" />
-        </div>
-      </div>
-      <div class="game-block" data-tech="img-10">
-        <div class="face front"></div>
-        <div class="face back">
-          <img src="images/10.png" alt="" />
-        </div>
-      </div>
-    </div>
-    <audio id="success" src="" preload="auto"></audio>
-    <audio id="fail" src="" preload="auto"></audio>
-    <script src="script.js"></script>
-  </body>
+        <script src="script.js"></script>
+    </body>
 </html>

@@ -1,115 +1,117 @@
-document.querySelector(".controls-buttons span").onclick = function () {
-  let Name;
-  Name = prompt("Whats Your Name?");
-
-  do {
-    if (Name.trim() !== "") {
-      break;
-    }
-    Name = prompt("To Start Game ==> Please Enter Your Name");
-  } while (Name == null || Name.trim() == "");
-
-  document.querySelector(".name span").innerHTML = Name;
-  document.querySelector(".controls-buttons").remove();
-  //   console.log(Name);
+document.querySelector(".btn").onclick = function () {
+    let Name;
+    Name = prompt("Whats Your Name?");
+    do {
+        if (Name.trim() !== "") {
+            break;
+        }
+        Name = prompt("To start game please enter your name!");
+    } while (Name.trim() == null || Name.trim() == "");
+    document.querySelector(".name").innerHTML = Name;
+    document.querySelector(".button-container").remove();
 };
-//
-///////////////////////////
-let duration = 1000;
-let blocksContainer = document.querySelector(".memory-blocks");
+///////////////
+let blocksContainer = document.querySelector(".blocks-container");
 let blocks = Array.from(blocksContainer.children);
 let orderRange = [...Array(blocks.length).keys()];
-// console.log(orderRange);
-shuffle(orderRange);
-// console.log(orderRange);
-// let orderRange = Array.from(Array(blocks.length).keys());  //NOTE - the second method
-///////////////////////////
-/// add random index for block order
-//
-blocks.forEach((e, index) => {
-  e.style.order = orderRange[index];
-});
-/// add click event for all blocks
-//
-blocks.forEach((block) => {
-  block.addEventListener("click", function () {
-    flipped(block);
-  });
-});
-///////////////////////////
-///  add class "flipped"
-/// filter blocks with flipped class
-function flipped(selectedblock) {
-  //
-  selectedblock.classList.add("flipped");
-  //
-  let flippedblocks = blocks.filter((flippedblock) =>
-    flippedblock.classList.contains("flipped")
-  );
-  // console.log(flippedblocks);
-  //
-  if (flippedblocks.length === 2) {
-    // To stop click function
-    stopclicking();
-    checkblocks(flippedblocks[0], flippedblocks[1]);
-  }
-}
-///////////////////////////
-function stopclicking() {
-  blocksContainer.classList.add("stopClicking");
-  setTimeout(() => {
-    blocksContainer.classList.remove("stopClicking");
-  }, duration);
-}
-// check blocks
-function checkblocks(firstblock, secondblock) {
-  let tries = document.querySelector(".tries span");
-  if (firstblock.dataset.tech === secondblock.dataset.tech) {
-    firstblock.classList.remove("flipped");
-    secondblock.classList.remove("flipped");
-    firstblock.classList.add("matched");
-    secondblock.classList.add("matched");
-    document.getElementById("success").play;
-  } else {
-    tries.innerHTML = parseInt(tries.innerHTML) + 1;
-    setTimeout(() => {
-      firstblock.classList.remove("flipped");
-      secondblock.classList.remove("flipped");
-    }, duration);
-    document.getElementById("fail").play;
-  }
-}
-///////////////////////////
-///////  orderRange ==> random orderRange
-// random function
+let time = 1000;
+// console.log(blocks);
+////////////////
+////////////////
 function shuffle(Array) {
-  let current = Array.length,
-    random,
-    temp;
-
-  while (current > 0) {
-    random = Math.floor(Math.random() * current);
-    current--;
-    temp = Array[current];
-    Array[current] = Array[random];
-    Array[random] = temp;
-  }
-  return Array;
+    let current = Array.length,
+        temp,
+        random;
+    while (current > 0) {
+        random = Math.floor(Math.random() * current);
+        current--;
+        temp = Array[current];
+        Array[current] = Array[random];
+        Array[random] = temp;
+    }
+    return Array;
 }
-function f() {
-  setTimeout(() => {
-    let a = document.querySelectorAll(".game-block .face");
-    a.forEach((e) => {
-      e.style = "backface-visibility:visible";
-      // e.style = "transform:rotateY(0deg);";
+////////////////
+////////////////
+shuffle(orderRange);
+console.log(orderRange);
+blocks.forEach((e, index) => {
+    e.style.order = orderRange[index];
+});
+
+///////////////
+///////////////
+blocks.forEach((block) => {
+    block.addEventListener("click", function () {
+        flipped(block);
+        matched(block);
     });
-  }, duration);
+});
+////////////////
+function checkblocks(first, second) {
+    if (first.dataset.tech === second.dataset.tech) {
+        console.log(first.dataset.tech === second.dataset.tech);
+        first.classList.add("matched");
+        second.classList.add("matched");
+        first.classList.remove("flipped");
+        second.classList.remove("flipped");
+    } else {
+        setTimeout(() => {
+            first.classList.remove("flipped");
+            second.classList.remove("flipped");
+        }, 1000);
+    }
+}
+////////////////
+function flipped(selectedblock) {
+    selectedblock.classList.add("flipped");
+
+    let flippedblocks = blocks.filter((flippedblock) => flippedblock.classList.contains("flipped"));
+    if (flippedblocks.length === 2) {
+        stopclicking();
+        checkblocks(flippedblocks[0], flippedblocks[1]);
+        console.log(flippedblocks[0], flippedblocks[1]);
+        console.log(flippedblocks[0].dataset.tech, flippedblocks[1].dataset.tech);
+    }
+}
+////////////
+////////////
+
+function stopclicking() {
+    blocksContainer.classList.add("stopClicking");
+    setTimeout(() => {
+        blocksContainer.classList.remove("stopClicking");
+    }, 1000);
+}
+/////////////
+/////////////
+
+//////////////
+//////////////
+function f() {
+    setTimeout(() => {
+        let a = document.querySelectorAll(".block .face");
+        a.forEach((e) => {
+            e.style = "backface-visibility:visible";
+            // e.style = "transform:rotateY(0deg);";
+        });
+    }, 1000);
 }
 ///////////////////////////
 function v() {
-  let a = document.querySelectorAll(".game-block .face");
-  a.forEach((e) => {
-    e.style = "backface-visibility:hidden";
-    // e.style = "transform:rotateY(180deg);";
-  });
+    let a = document.querySelectorAll(".block .face");
+    a.forEach((e) => {
+        e.style = "backface-visibility:hidden";
+        // e.style = "transform:rotateY(180deg);";
+    });
 }
+function matched(selectedblock) {
+    let flippedblocks = blocks.filter((flippedblock) => flippedblock.classList.contains("matched"));
+    if (flippedblocks.length === 20) {
+        stopclicking();
+        document.querySelector(".end-game").style = "display:block";
+    }
+}
+document.querySelector(".end").onclick = function () {
+    window.close();
+};
